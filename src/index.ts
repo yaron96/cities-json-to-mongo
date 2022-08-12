@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import * as countries from "all-countries-and-cities-json";
+import countries from "all-countries-and-cities-json";
 import { CountryModel } from "./models/country.model";
 import { CityModel } from "./models/city.model";
 
@@ -24,7 +24,6 @@ async function connect() {
 
 async function main() {
   for (const key in countries) {
-    if (key === "default") continue;
     console.log(`${key}...`);
     const country = await CountryModel.create({ title: key });
 
